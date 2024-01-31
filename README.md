@@ -78,11 +78,15 @@ after making a stream bucket go to the settings and note down the bucket name, b
 ![image](https://github.com/JeePeeTwee/Iotproject/assets/158081202/f3f45646-3c9e-4040-bbe3-422df4856d98)
 
 
-# the setup
+## the setup
 for the sensor itself you wil need to connect it to the power, the ground and any of the other pins.
 the red wire is the power, black the ground and the yellow wire you use for the input, note down hat pin the yellow wire is connected to for me its 4
+if you are using a T splitter and a breadboard it will look something like this
+![Afbeelding van WhatsApp op 2024-01-31 om 13 56 18_0bb2c2e5](https://github.com/JeePeeTwee/Iotproject/assets/158081202/e748eda0-25f8-4cae-977d-f17cf0710f1c)
 
-# the code
+
+
+## the code
 for the code you can download the py file thats given in here you will need to set the streamer and the what pins u use for the pins u edit this part of the code
 ```py
 dhtDevice = adafruit_dht.DHT22(board.D4,use_pulseio=False)
@@ -94,5 +98,7 @@ for the streaming to Initial State you edit
  streamer = Streamer(bucket_name = "temperature", bucket_key = "VP4VD667DY6R" , access_key = "ist_SXF4wLmu-wj2dcSFuz4dQfWfAy_4WJMO")
 ```
 you edit the bucket_name = "(the name of ur bucket)", bucket_key = "(the key u wrote down)" and acces_key = "(the api key u wrote down)"
-after doing all this the code should be working fine and you can log into Inital State and see the magic happen.
+after doing all this the code should be working fine and you can log into Inital State and see the magic happen, it will look something like this
+![image](https://github.com/JeePeeTwee/Iotproject/assets/158081202/b1182e06-a6b7-479a-b711-0aef5000a6ec)
+
 if you want you can change the time it sends data to Inital State by changing the time.sleep(60) to anything else this is in seconds so make sure you edit those
