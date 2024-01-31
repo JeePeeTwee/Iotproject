@@ -6,7 +6,7 @@ I was wondering how hot it would be in my room with my computer. You would asume
 To check the differences in temperature I would be letting the Pi and its sensor run in the other room and then with use of the initial state bucket I used I could check the Temperature from the living room where the thermostat is located.
 
 # The progress
-first 
+first i brainstormed how i would be measuring the temperature and looked at the options for sensors i had, i found many usable sensor but decided on an AM2302 Temp/Humidity Sensor. i did this cause i wasnt sure if i wanted to solder and didnt want to get a hat if I ended up wanting to Use it together with other sensors or items. i also bought a breadboard so i did not need to solder anything.
 ## the code
 when i started with the code I started off by checking if the sensor was correctly plugged in and if it would work I used the documentation to check if I did everything correctly The code used to check was
 ```py
@@ -59,4 +59,10 @@ def main():
             streamer.flush
             time.sleep(60)
 ```
-this also worked so i combined both pieces of code to get the end result which not only sends it to Inital State but also prints it out to double check.
+this also worked so i combined both pieces of code to get the end result which not only sends it to Inital State but also prints it out in the console so i could double check if it is sending the same data.
+
+# tutorial
+## things you will need
+1. a raspberry pi (any from the 3 a+ or above will work
+2. a AM2302 Temp/Humidity Sensor
+3. a Initial State account (https://app.initialstate.com)
