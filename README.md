@@ -6,7 +6,7 @@ I was wondering how hot it would be in my room with my computer. You would asume
 To check the differences in temperature I would be letting the Pi and its sensor run in the other room and then with use of the initial state bucket I used I could check the Temperature from the living room where the thermostat is located.
 
 # The progress
-first i brainstormed how i would be measuring the temperature and looked at the options for sensors i had, i found many usable sensor but decided on an AM2302 Temp/Humidity Sensor. i did this cause i wasnt sure if i wanted to solder and didnt want to get a hat if I ended up wanting to Use it together with other sensors or items. i also bought a breadboard so i did not need to solder anything.
+first i brainstormed how i would be measuring the temperature and looked at the options for sensors i had, i found many usable sensor but decided on an AM2302 Temp/Humidity Sensor. i did this cause i wasnt sure if i wanted to solder and didnt want to get a hat if I ended up wanting to Use it together with other sensors or items. i also bought a breadboard so i did not need to solder anything. i also used a T splitter to make it easier for myself to see where i connected the cables.
 ## the code
 when i started with the code I started off by checking if the sensor was correctly plugged in and if it would work I used the documentation to check if I did everything correctly The code used to check was
 ```py
@@ -66,3 +66,33 @@ this also worked so i combined both pieces of code to get the end result which n
 1. a raspberry pi (any from the 3 a+ or above will work
 2. a AM2302 Temp/Humidity Sensor
 3. a Initial State account (https://app.initialstate.com)
+4. a breadboard (optional)
+5. a 20 pin T splitter (optional)
+
+## starting off
+first you have to start by making a Inital State account.
+once done create a new stream bucket by going to the side bar and pressing the create stream bucket button 
+![image](https://github.com/JeePeeTwee/Iotproject/assets/158081202/9303b8d1-f7ef-4da1-ab82-3c503f106dcb) its the little cloud next to the search bar, give this bucket a name and press the create button on the bottom right of the create screen. 
+after making a stream bucket go to the settings and note down the bucket name, bucket key and API endpoint.
+
+![image](https://github.com/JeePeeTwee/Iotproject/assets/158081202/f3f45646-3c9e-4040-bbe3-422df4856d98)
+
+
+# the setup
+for the sensor itself you wil need to connect it to the power, the ground and any of the other pins.
+the red wire is the power, black the ground and the yellow wire you use for the input, note down hat pin the yellow wire is connected to for me its 4
+
+# the code
+for the code you can download the py file thats given in here you will need to set the streamer and the what pins u use for the pins u edit this part of the code
+```py
+dhtDevice = adafruit_dht.DHT22(board.D4,use_pulseio=False)
+```
+to edit what pin u use you write change the D4 i.e if you use pin 18 its board.D18
+
+for the streaming to Initial State you edit
+```py
+ streamer = Streamer(bucket_name = "temperature", bucket_key = "VP4VD667DY6R" , access_key = "ist_SXF4wLmu-wj2dcSFuz4dQfWfAy_4WJMO")
+```
+you edit the bucket_name = "(the name of ur bucket)", bucket_key = "(the key u wrote down)" and acces_key = "(the api key u wrote down)"
+after doing all this the code should be working fine and you can log into Inital State and see the magic happen.
+if you want you can change the time it sends data to Inital State by changing the time.sleep(60) to anything else this is in seconds so make sure you edit those
