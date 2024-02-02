@@ -102,3 +102,10 @@ After doing all this the code should be working fine and you can log into Initia
 ![image](https://github.com/JeePeeTwee/Iotproject/assets/158081202/b1182e06-a6b7-479a-b711-0aef5000a6ec)
 
 If you want you can change the time it sends data to Initial State by changing the time.sleep(60) to anything else this is in seconds so make sure you edit those
+
+## the end result
+eventually everything should look something like this
+
+https://github.com/JeePeeTwee/Iotproject/assets/158081202/daf51166-7a71-4820-9cd6-c69be49a082e
+
+
